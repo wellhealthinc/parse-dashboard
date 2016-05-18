@@ -98,7 +98,7 @@ module.exports = function(config, allowInsecureHTTP) {
     if (users || auth) {
       //They provided incorrect auth
       res.set('WWW-Authenticate', 'Basic realm=Authorization Required');
-      return res.sendStatus(401);
+      return res.status(401).send();
     }
 
     //They didn't provide auth, and have configured the dashboard to not need auth
